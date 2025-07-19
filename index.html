@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🔮 Pattern Genius</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Pattern Genius <span class="emoji"></span></h1>
+
+    <div class="input-area">
+      <input type="text" id="colorInput" placeholder="🎨 Color (Red/Green)" />
+      <input type="text" id="resultInput" placeholder="📊 Result (Big/Small)" />
+      <div class="buttons">
+        <button id="saveBtn" class="btn save"><i class="fas fa-save"></i> Save</button>
+        <button id="exitBtn" class="btn exit"><i class="fas fa-sign-out-alt"></i> Exit</button>
+      </div>
+    </div>
+
+    <div class="status">
+      <p id="patternStatus">🔍 Waiting for 10 entries to start detection...</p>
+
+      <!-- Stylish Preview Output -->
+      <div id="predictionPreview" class="prediction-card hidden">
+        <div class="card-header">
+          <i class="fas fa-magic"></i> Pattern Detected
+        </div>
+        <div class="card-body">
+          <p><strong>🎨 Pattern:</strong> <span class="text-track" id="patternText">green, green, green</span></p>
+          <p><strong>🔮 Prediction:</strong> <span class="tag tag-red" id="predictionText">Red</span></p>
+          <p><strong>🎯 Accuracy:</strong> <span class="badge" id="accuracyText">60.0%</span> <span class="note" id="validationNote">(5 validations)</span></p>
+          <p><strong>🧾 Last 5:</strong> 
+            <span class="last-five" id="lastFiveResults">
+              <span class="outcome win">✓</span>
+              <span class="outcome loss">✗</span>
+              <span class="outcome win">✓</span>
+              <span class="outcome loss">✗</span>
+              <span class="outcome win">✓</span>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>📈 Period</th>
+            <th>🎨 Color</th>
+            <th>📊 Result</th>
+          </tr>
+        </thead>
+        <tbody id="dataBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
